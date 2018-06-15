@@ -1,0 +1,22 @@
+<%= form_with(model: meet, local: true) do |form| %>
+  <% if meet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meet.errors.count, "error") %> prohibited this meet from being saved:</h2>
+
+      <ul>
+      <% meet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :meet_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
