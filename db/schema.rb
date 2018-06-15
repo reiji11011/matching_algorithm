@@ -224,15 +224,6 @@ ActiveRecord::Schema.define(version: 20180615105322) do
     t.index ["user_id"], name: "index_user_regions_on_user_id"
   end
 
-  create_table "user_resions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "region_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["region_id"], name: "index_user_resions_on_region_id"
-    t.index ["user_id"], name: "index_user_resions_on_user_id"
-  end
-
   create_table "user_search_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "search_job_id"
@@ -299,8 +290,6 @@ ActiveRecord::Schema.define(version: 20180615105322) do
   add_foreign_key "user_occupations", "users"
   add_foreign_key "user_regions", "regions"
   add_foreign_key "user_regions", "users"
-  add_foreign_key "user_resions", "regions"
-  add_foreign_key "user_resions", "users"
   add_foreign_key "user_search_jobs", "search_jobs"
   add_foreign_key "user_search_jobs", "users"
 end
